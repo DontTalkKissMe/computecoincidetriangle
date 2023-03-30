@@ -98,5 +98,24 @@ def judgeedge(tri2,x1,y1,x2,y2,x3,y3):
     poin.append((poin[0][0],poin[0][1]))
     return poin
 
+#计算重合部分面积
+def getcrosstriangleareanum(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6):
+    poangle = getcrosstrianglearea(x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6)
+    sum = 0
+    if len(poangle)==0:
+        sum = 0
+    else:
+        poangle.pop(len(poangle)-1)
+        print(poangle)
+        if len(poangle)<3:
+            sum = 0
+        for i in range(1,len(poangle)-1):
+            sum += getarea(poangle[0][0],poangle[0][1],poangle[i][0],poangle[i][1],poangle[i+1][0],poangle[i+1][1])
+            print(getarea(poangle[0][0],poangle[0][1],poangle[i][0],poangle[i][1],poangle[i+1][0],poangle[i+1][1]))
+    print('面积为',sum)
+    print(len(poangle)-1)
+    return sum
+
 #测试代码
-getcrosstrianglearea(0,5,1,-1,-1,-1,0,3,2,-2,-2,-2)
+m = getcrosstriangleareanum(0,0,1,0,1,1,0,0,1,0,0,1)
+print(m)
