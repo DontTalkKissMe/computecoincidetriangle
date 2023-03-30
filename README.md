@@ -1,0 +1,2 @@
+# computecoincidetriangle
+使用了Sutherland-Hodgman算法计算两个三角形重合部分维出来的多边形的点
